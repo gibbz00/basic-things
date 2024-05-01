@@ -1,2 +1,4 @@
 [formatting]
 inline_table_expand = false
+reorder_arrays = true
+reorder_keys = true
