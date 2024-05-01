@@ -1,0 +1,13 @@
+[package]
+name = "PROJECT_NAME-common"
+authors.workspace = true
+repository.workspace = true
+exclude.workspace = true
+edition.workspace = true
+readme.workspace = true
+version.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]

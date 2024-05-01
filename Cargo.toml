@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[workspace.package]
+authors = ["AUTHOR_EMAIL"]
+repository = "https://github.com/GITHUB_PATH"
+exclude = ["/.github"]
+edition = "2021"
+readme = "README.md"
+version = "0.1.0"
+
+[workspace.dependencies]
+
+[workspace.lints.rust]
+unused_must_use = "deny"
+missing_docs = "deny"
