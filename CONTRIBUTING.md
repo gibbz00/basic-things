@@ -8,6 +8,14 @@ There are some things that should be kept in mind when contributing to this proj
 
 Structure requirements on commit messages, issues and pull requests are other than that pretty relaxed, (for now 🤞).
 
+### Recommended developer tools:
+
+##### LSPs
+
+* [`typos-lsp`](https://github.com/tekumara/typos-lsp)
+* [`taplo`](https://github.com/tamasfe/taplo)
+* [`rust-analyzer`](https://github.com/rust-lang/rust-analyzer)
+
 ### Using pre-commit hooks
 
  Using a pre-commit hook to locally check simpler CI validation steps is encouraged to avoid squash commit requests by the maintainers, but also `git commit --amend && git push --force` abuse. This can be achieved by pasting the following into `.git/hooks/pre-commit`:
@@ -29,6 +37,9 @@ cargo clippy --all-features --tests -- -D warnings
 
 # Check documentation
 RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --all-features
+
+# Typos
+typos
 
 # Some may also want to uncomment:
 # cargo test --all-features
