@@ -8,3 +8,11 @@ fn prompt_variable(name: &str, prompt: &str) {
 	let value = variable::prompt(prompt);
 	variable::set(name, value);
 }
+
+fn prompt_yes_no(name: &str, prompt: &str) {
+	let value = switch variable::prompt(prompt, "No", ["Yes", "No"]) {
+		"Yes" => true,
+		"No" => false,
+	};
+	variable::set(name, value);
+}
