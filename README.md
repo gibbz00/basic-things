@@ -1,4 +1,4 @@
-# {{ project-name }} - PROJECT_DESCRIPTION
+# {{ project-name }}
 
 [![ci_status](https://img.shields.io/github/actions/workflow/status/GITHUB_PATH/ci.yaml?style=for-the-badge)](https://github.com/GITHUB_PATH/actions/workflows/ci.yaml)
 [![codecov](https://img.shields.io/codecov/c/gh/GITHUB_PATH?token=CODE_COV_TOKEN&style=for-the-badge)](https://codecov.io/gh/GITHUB_PATH)
