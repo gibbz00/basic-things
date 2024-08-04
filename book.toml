@@ -1,5 +1,5 @@
 [book]
-authors = ["AUTHOR_EMAIL"]
+authors = [{{ authors }}]
 language = "en"
 multilingual = false
 src = "book"
