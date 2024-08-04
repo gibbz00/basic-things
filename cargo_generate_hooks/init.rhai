@@ -25,7 +25,7 @@ fn prompt_optional_string(name, prompt) {
 	prompt_variable(name, `${prompt} (leave empty if none)`);
 }
 
-fn prompt_yes_no(name, prompt) -> bool {
+fn prompt_yes_no(name, prompt) {
 	let value = switch variable::prompt(prompt, "No", ["Yes", "No"]) {
 		"Yes" => true,
 		"No" => false,
