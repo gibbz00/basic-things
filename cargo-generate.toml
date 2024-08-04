@@ -1,3 +1,9 @@
+[template]
+ignore = ["cargo_generate_hooks"]
+
 [placeholders.optional_codecov]
 prompt = "Optional Codecov token (leave empty if none):"
 type = "string"
+
+[hooks]
+init = ["cargo_generate_hooks/init.rhai"]
