@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "PROJECT_NAME-common"
+name = "{{ project-name }}-common"
 version = "0.1.0"

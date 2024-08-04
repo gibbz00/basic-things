@@ -3,7 +3,7 @@ authors = ["AUTHOR_EMAIL"]
 language = "en"
 multilingual = false
 src = "book"
-title = "PROJECT_NAME Documentation"
+title = "{{ project-name }} Documentation"
 
 [rust]
 edition = "2021"
@@ -12,8 +12,8 @@ edition = "2021"
 build-dir = "target/book"
 
 [output.html]
-preferred-dark-theme = "navy"
-curly-quotes = true
-git-repository-url = "https://github.com/GITHUB_PATH/PROJECT_NAME"
-edit-url-template = "https://github.com/GITHUB_PATH/PROJECT_NAME/edit/main/{path}"
 cname = "GITHUB_PAGES_URL"
+curly-quotes = true
+edit-url-template = "https://github.com/GITHUB_PATH/{{ project-name }}/edit/main/{path}"
+git-repository-url = "https://github.com/GITHUB_PATH/{{ project-name }}"
+preferred-dark-theme = "navy"

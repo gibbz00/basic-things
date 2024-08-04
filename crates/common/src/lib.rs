@@ -1,1 +1,1 @@
-//! PROJECT_NAME commons.
+//! {{ project-name }} commons.

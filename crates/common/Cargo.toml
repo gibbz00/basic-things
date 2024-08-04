@@ -1,10 +1,11 @@
 [package]
-name = "PROJECT_NAME-common"
+name = "{{ project-name }}-common"
+
 authors.workspace = true
-repository.workspace = true
-exclude.workspace = true
 edition.workspace = true
+exclude.workspace = true
 readme.workspace = true
+repository.workspace = true
 version.workspace = true
 
 [lints]
