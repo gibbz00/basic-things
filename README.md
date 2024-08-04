@@ -55,7 +55,9 @@ Remove `template.sh`, but also the [[#Usage]] and [[#Features]] README.md sectio
 
 ## Further reading
 
-* [Architecture](ARCHITECTURE_URL)
+{% if architecture_url != "" %}
+* [Architecture]({{ architecture_url }})
+{% endif %}
 * [Contributing](/CODE_OF_CONDUCT.md)
 * [Code of conduct](/CODE_OF_CONDUCT.md)
 * [Security policy](/SECURITY.md)
