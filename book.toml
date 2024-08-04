@@ -12,9 +12,9 @@ edition = "2021"
 build-dir = "target/book"
 
 [output.html]
-{% if mdbook_pages_url %}
+{%- if mdbook_pages_url -%}
 cname = "{{ mdbook_pages_url }}"
-{% endif %}
+{%- endif -%}
 curly-quotes = true
 edit-url-template = "https://github.com/{{ repository_path }}/{{ project-name }}/edit/main/{path}"
 git-repository-url = "https://github.com/{{ repository_path }}/{{ project-name }}"
