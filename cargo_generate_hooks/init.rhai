@@ -5,6 +5,6 @@ prompt_variable("architecture_url", `Optional architecture README.md URL ${optio
 prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
 
 fn prompt_variable(name: &str, prompt: &str) {
-	let value = variable::prompt(`Optional architecture README.md URL ${optional_prompt}`);
-	variable::set("architecture_url", value);
+	let value = variable::prompt(prompt);
+	variable::set(name, value);
 }
