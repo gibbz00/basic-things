@@ -6,11 +6,6 @@
 {% endif %}
 [![license](https://img.shields.io/github/license/{{ repository_path }}.svg?style=for-the-badge)](https://github.com/{{ repository_path }}/blob/main/LICENSE.md)
 
-## Usage
-
-Update the respective value in [template.sh](/template.sh) and execute it. (Assumes `fd` is installed.)
-Remove `template.sh`, but also the [[#Usage]] and [[#Features]] README.md sections
-
 ### CI/CD expects the following environment variables:
 
 `ci.yaml`
