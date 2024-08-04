@@ -4,5 +4,4 @@ replace_all() {
 }
 
 # Assumptions: hosted on github.com, default branch is main.
-replace_all 'GITHUB_PATH' 'username/repo'
 replace_all 'GITHUB_PAGES_URL' 'username.github.io'

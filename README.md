@@ -1,10 +1,10 @@
 # {{ project-name }}
 
-[![ci_status](https://img.shields.io/github/actions/workflow/status/GITHUB_PATH/ci.yaml?style=for-the-badge)](https://github.com/GITHUB_PATH/actions/workflows/ci.yaml)
+[![ci_status](https://img.shields.io/github/actions/workflow/status/{{ repository_path }}/ci.yaml?style=for-the-badge)](https://github.com/{{ repository_path }}/actions/workflows/ci.yaml)
 {% if optional_codecov != "" %}
-[![codecov](https://img.shields.io/codecov/c/gh/GITHUB_PATH?token={{ optional_codecov }}&style=for-the-badge)](https://codecov.io/gh/GITHUB_PATH)
+[![codecov](https://img.shields.io/codecov/c/gh/{{ repository_path }}?token={{ optional_codecov }}&style=for-the-badge)](https://codecov.io/gh/{{ repository_path }})
 {% endif %}
-[![license](https://img.shields.io/github/license/GITHUB_PATH.svg?style=for-the-badge)](https://github.com/GITHUB_PATH/blob/main/LICENSE.md)
+[![license](https://img.shields.io/github/license/{{ repository_path }}.svg?style=for-the-badge)](https://github.com/{{ repository_path }}/blob/main/LICENSE.md)
 
 ## Usage
 

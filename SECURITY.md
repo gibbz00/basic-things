@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-* If you have discovered a security vulnerability in this project, then please disclose it as a security advisory [here](https://github.com/GITHUB_PATH/security/advisories/new).
+* If you have discovered a security vulnerability in this project, then please disclose it as a security advisory [here](https://github.com/{{ repository_path }}/security/advisories/new).
 * Do not reveal the problem to others until it has been resolved, or when 90 days have passed since the security advisory was first created.
 * Do not take advantage of the vulnerability problem you have discovered.
 
