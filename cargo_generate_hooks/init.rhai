@@ -22,7 +22,11 @@ fn prompt_variable(name, prompt) {
 }
 
 fn prompt_optional_string(name, prompt) {
-	prompt_variable(name, `${prompt} (leave empty if none)`);
+	lev optional_value = variable::prompt(name, `${prompt} (enter one space character if none)`);
+
+	if optional_value != " " {
+		variable::set(name, optional_value);
+	}
 }
 
 fn prompt_yes_no(name, prompt) {
