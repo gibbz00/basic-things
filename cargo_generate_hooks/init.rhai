@@ -4,7 +4,7 @@ prompt_optional_string("architecture_url", "Architecture README.md URL");
 prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
 
 fn template_book() {
-	let include_mdbook = prompt_yes_no("Create mdBook template");
+	let include_mdbook = prompt_yes_no("include_mdbook", "Create mdBook template");
 
 	if !include_mdbook {
 		file::delete("book.toml");
