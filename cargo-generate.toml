@@ -1,0 +1,3 @@
+[placeholders.optional_codecov]
+prompt = "Optional Codecov token (leave empty if none):"
+type = "string"
