@@ -1,4 +1,15 @@
-format_code_in_doc_comments = true
+# Imports
 group_imports = "StdExternalCrate"
 imports_granularity = "Crate"
+
+# Comments
+comment_width = 100
+format_code_in_doc_comments = true
+wrap_comments = true
+
+# Code widths
 max_width = 140
+struct_lit_width = 70
+
+# Miscellaneous
+reorder_impl_items = true
