@@ -1,5 +1,5 @@
 [template]
-ignore = ["cargo_generate_hooks"]
+ignore = [".github/workflows/ci.yaml", "cargo_generate_hooks"]
 
 [hooks]
 init = ["cargo_generate_hooks/init.rhai"]
