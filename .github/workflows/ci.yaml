@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PROJECT_NAME: basic-tests
+      CARGO_GENERATE_VALUE_CI: true
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4

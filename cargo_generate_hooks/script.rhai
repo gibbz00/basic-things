@@ -1,3 +1,10 @@
+// WORKAROUND:
+// CI will otherwise fail with a `Runtime error: IO error: not a terminal`,
+// even when returning early for predefined values.
+if variable::is_set("ci") {
+	exit();
+}
+
 template_book();
 template_precommit_hooks();
 prompt_optional_string("codecov", "Codecov token");
