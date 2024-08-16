@@ -58,6 +58,7 @@ jobs:
         uses: ./.github/actions/build_setup
       - name: Run clippy
         run: cargo clippy --all-features --tests -- -D warnings
+  {%- if include_mdbook -%}
   mdbook_validation:
     name: mdBook validation
     runs-on: ubuntu-latest
@@ -72,6 +73,7 @@ jobs:
           mdbook-version: 'latest'
       - name: Run mdbook test
         run: mdbook test
+  {%- endif -%}
   docs_validation:
     name: Docs validation
     runs-on: ubuntu-latest
