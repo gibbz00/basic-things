@@ -3,7 +3,7 @@ members = ["crates/*"]
 resolver = "2"
 
 [workspace.package]
-authors = [{{ authors }}]
+authors = ["{{ authors }}"]
 edition = "2021"
 exclude = ["/.github"]
 readme = "README.md"

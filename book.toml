@@ -1,5 +1,5 @@
 [book]
-authors = [{{ authors }}]
+authors = ["{{ authors }}"]
 language = "en"
 multilingual = false
 src = "book"
