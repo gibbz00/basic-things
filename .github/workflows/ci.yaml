@@ -18,9 +18,9 @@ jobs:
         with:
           name: ${{ env.PROJECT_NAME }}
           arguments: >-
-            --define=include_mdbook="true"
+            --define=include_mdbook=true
             --define=mdbook_pages_url="XXX"
-            --define=include_precommit="true"
+            --define=include_precommit=true
             --define=codecov="XXX"
             --define=architecture_url="XXX"
             --define=repository_path="XXX"
