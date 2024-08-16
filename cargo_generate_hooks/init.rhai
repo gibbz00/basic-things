@@ -26,11 +26,19 @@ fn template_precommit_hooks() {
 }
 
 fn prompt_variable(name, prompt) {
+	if variable::is_set(name) {
+		return;
+	}
+
 	let value = variable::prompt(prompt);
 	variable::set(name, value);
 }
 
 fn prompt_optional_string(name, prompt) {
+	if variable::is_set(name) {
+		return;
+	}
+
 	let optional_value = variable::prompt(name, `${prompt} (leave empty if none)`);
 
 	if optional_value != "" {
@@ -39,6 +47,10 @@ fn prompt_optional_string(name, prompt) {
 }
 
 fn prompt_yes_no(name, prompt) {
+	if variable::is_set(name) {
+		return variable::get(name);
+	}
+
 	let value = switch variable::prompt(prompt, "No", ["Yes", "No"]) {
 		"Yes" => true,
 		"No" => false,
