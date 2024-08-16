@@ -18,6 +18,11 @@
 
 ## Features
 
+Optionally enabled tools:
+
+* [mdbook](https://github.com/rust-lang/mdBook)
+* [pre-commit](https://github.com/pre-commit/pre-commit)
+
 ### CI/CD
 
 #### Linting

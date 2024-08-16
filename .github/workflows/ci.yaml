@@ -8,6 +8,20 @@ env:
   CARGO_TERM_COLOR: always
   RUST_BACKTRACE: full
 jobs:
+  {%- if include_precommit -%}
+  pre-commit:
+    name: Validate pre-commit hooks
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v3
+    - name: Get python
+      uses: actions/setup-python@v3
+    - name: Run pre-commit check
+      uses: pre-commit/action@v3.0.1
+      with:
+        extra_args: run --all-files --hook-stage manual
+  {%- endif-%}
   cargo_fmt:
     name: Cargo format
     runs-on: ubuntu-latest

@@ -1,0 +1,48 @@
+# manual stage used to selectively run pre-commit jobs in CI which don't have a dedicated CI job already.
+
+default_stages: ["pre-commit"]
+
+repos:
+- repo: local
+  hooks:
+  - id: cargo-fmt
+    name: cargo fmt
+    language: rust
+    files: \.rs$
+    pass_filenames: false
+    entry: cargo fmt
+    args: ["--all", "--", "--check"]
+  - id: cargo-clippy
+    name: cargo clippy
+    language: rust
+    files: \.rs$
+    pass_filenames: false
+    entry: cargo clippy
+    args: ["--all-features", "--tests", "--", "-D", "warnings"]
+  - id: cargo-doc
+    name: cargo doc
+    language: rust
+    files: \.rs$
+    pass_filenames: false
+    entry: sh -c "RUSTDOCFLAGS='-D warnings' cargo doc"
+    args: ["--no-deps", "--all-features", "--workspace"]
+    repos:
+- repo: https://github.com/ComPWA/mirrors-taplo
+  rev: "v0.9.0"
+  hooks:
+    - id: taplo
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.6.0
+  hooks:
+    - id: check-merge-conflict
+      stages: ["pre-commit", "manual"]
+    - id: check-executables-have-shebangs
+      stages: ["pre-commit", "manual"]
+    - id: trailing-whitespace
+      stages: ["pre-commit", "manual"]
+    - id: end-of-file-fixer
+      stages: ["pre-commit", "manual"]
+    - id: forbid-submodules
+      stages: ["pre-commit", "manual"]
+    - id: forbid-new-submodules
+      stages: ["pre-commit", "manual"]

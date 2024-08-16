@@ -16,35 +16,11 @@ Structure requirements on commit messages, issues and pull requests are other th
 * [`taplo`](https://github.com/tamasfe/taplo)
 * [`rust-analyzer`](https://github.com/rust-lang/rust-analyzer)
 
+{%- if include_precommit -%}
 ### Using pre-commit hooks
 
- Using a pre-commit hook to locally check simpler CI validation steps is encouraged to avoid squash commit requests by the maintainers, but also `git commit --amend && git push --force` abuse. This can be achieved by pasting the following into `.git/hooks/pre-commit`:
-
-```sh
-#!/bin/sh
-set -e
-
-# Make sure the toolchain is up to date and includes the
-# necessary components specified in rust-toolchain.toml:
-rustup update "$(rustup toolchain list | rg override | cut -d ' ' -f1)"
-
-# Make sure things are properly formatted
-cargo fmt -- --check
-taplo fmt --check --diff
-
-# Make sure things follow common linting recommendations
-cargo clippy --all-features --tests -- -D warnings
-
-# Check documentation
-RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --all-features
-
-# Typos
-typos
-
-# Some may also want to uncomment:
-# cargo test --all-features
-# mdbook test
-```
+This project makes use of [`pre-commit`](https://pre-commit.com/) hooks. A `pre-commit install` is recommended once the repository has been cloned, unless it has been [auto-enabled](https://pre-commit.com/#automatically-enabling-pre-commit-on-repositories).
+{%- endif -%}
 
 ### Running tests
 

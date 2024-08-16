@@ -1,4 +1,5 @@
 template_book();
+template_precommit_hooks();
 prompt_optional_string("codecov", "Codecov token");
 prompt_optional_string("architecture_url", "Architecture README.md URL");
 prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
@@ -13,6 +14,14 @@ fn template_book() {
 
 	if include_mdbook {
 		prompt_optional_string("mdbook_pages_url", "Publish the mdBook to repository's static pages service? If so, to which URL?");
+	}
+}
+
+fn template_precommit_hooks() {
+	let include_precommit = prompt_yes_no("include_precommit", "Create pre-commit hooks template");
+
+	if !include_precommit {
+		file::delete(".pre-commit-config.yaml");
 	}
 }
 
