@@ -16,6 +16,6 @@ build-dir = "target/book"
 cname = "{{ mdbook_pages_url }}"
 {%- endif -%}
 curly-quotes = true
-edit-url-template = "https://github.com/{{ repository_path }}/{{ project-name }}/edit/main/{path}"
-git-repository-url = "https://github.com/{{ repository_path }}/{{ project-name }}"
+edit-url-template = "https://github.com/{{ repository_path }}/edit/main/{path}"
+git-repository-url = "https://github.com/{{ repository_path }}"
 preferred-dark-theme = "navy"
