@@ -44,18 +44,6 @@ body = """
 """
 
 footer = """
-{% for release in releases | reverse -%}
-    {% if not release.version -%}
-        [unreleased]: https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}\
-            /compare/{{ release.previous.version }}..HEAD
-    {% else -%}
-        {% if release.previous.version -%}
-            [{{ release.version | trim_start_matches(pat="v") }}]: \
-                https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}\
-                    /compare/{{ release.previous.version }}..{{ release.version }}
-        {% endif -%}
-    {% endif -%}
-{% endfor %}
 """
 
 [git]
