@@ -120,6 +120,14 @@ jobs:
         uses: aig787/cargo-udeps-action@v1
         with:
           args: --all-features
+  conventional_commits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+      - name: Assert conventional commit usage
+        uses: oknozor/cocogitto-action@v3
   lychee_links:
     name: Links
     runs-on: ubuntu-latest
