@@ -1,12 +1,9 @@
 # Contributing Guidelines
 
 There are some things that should be kept in mind when contributing to this project.
-- Each commit is expected to pass CI on its own, (even if it's not automatically enforced by the CI pipeline).
+- Commit messages must follow the [conventional commits](https://www.conventionalcommits.org) specification. This enables automated [CHANGELOG.md](CHANGELOG.md) generation by using [`git-cliff`](https://git-cliff.org), but also automated semantic version bumps with [`cocogitto`](https://docs.cocogitto.io).
+- Each commit is should pass CI on its own.
 - Bug fixes and feature additions should be accompanied by tests.
-- Commit messages should at the very least give some explanation of what has changed, writing "Fix." does not count. Gold star to you if the message also includes a motivation.
-- Each pull request should add their changes to the [CHANGELOG.md](CHANGELOG.md) and attempt to follow the conventions described in [Keep a Changelog](https://keepachangelog.com).
-
-Structure requirements on commit messages, issues and pull requests are other than that pretty relaxed, (for now 🤞).
 
 ### Recommended developer tools:
 
