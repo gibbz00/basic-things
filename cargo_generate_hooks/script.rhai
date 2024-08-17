@@ -46,7 +46,7 @@ fn prompt_optional_string(name, prompt) {
 		return;
 	}
 
-	let optional_value = variable::prompt(name, `${prompt} (leave empty if none)`);
+	let optional_value = variable::prompt(`${prompt} (leave empty if none)`, "");
 
 	if optional_value != "" {
 		variable::set(name, optional_value);
