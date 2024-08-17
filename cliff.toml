@@ -62,7 +62,9 @@ commit_parsers = [
   { message = "^revert", group = "Removed" },
 
   # Will be shown if they include breaking changes:
+  { message = "^build", group = "Continuous Deployment", skip = true },
   { message = "^chore", group = "Miscellaneous", skip = true },
+  { message = "^ci", group = "Continuous Integration", skip = true },
   { message = "^refactor", group = "Refactoring", skip = true },
   { message = "^style", group = "Style", skip = true },
   { message = "^test", group = "Test", skip = true },
