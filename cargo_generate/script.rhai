@@ -66,7 +66,7 @@ fn template_security_policy() {
 	let include_security_policy = prompt_yes_no("include_security_policy", "Template a security policy (SECURITY.md)");
 
 	if !include_security_policy {
-		file::delete("SECURITY.md.liquid");
+		file::delete("SECURITY.md");
 	}
 }
 
