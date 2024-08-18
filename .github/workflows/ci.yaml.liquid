@@ -10,7 +10,7 @@ env:
 jobs:
   {%- if include_precommit -%}
   pre-commit:
-    name: Validate pre-commit hooks
+    name: Validate `pre-commit` Hooks
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
@@ -22,26 +22,35 @@ jobs:
       with:
         extra_args: run --all-files --hook-stage manual
   {%- endif -%}
-  cargo_fmt:
-    name: Cargo format
+  conventional_commits:
+    name: Conventional Commit Checking
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
-      - name: Build setup
-        uses: ./.github/actions/build_setup
-      - name: cargo fmt
-        run: cargo fmt --all -- --check
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+      - name: Assert conventional commit usage
+        uses: oknozor/cocogitto-action@v3
   spelling:
-    name: Spell checking
+    name: Spell Checking
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
       uses: actions/checkout@v4
     - name: typos
       uses: crate-ci/typos@master
+  lychee_links:
+    name: Broken URL Checking
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v1.9.3
+        with:
+          fail: true
   taplo_checks:
-    name: Toml validation
+    name: TOML Validation
     runs-on: ubuntu-latest
     container:
       image: tamasfe/taplo:0.8.0
@@ -52,18 +61,18 @@ jobs:
         run: taplo lint
       - name: taplo fmt
         run: taplo fmt --check --diff
-  cargo_test:
-    name: Test
+  cargo_fmt:
+    name: Format Checking
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
       - name: Build setup
         uses: ./.github/actions/build_setup
-      - name: Run tests
-        run: cargo test --all-features -- --include-ignored --nocapture
+      - name: cargo fmt
+        run: cargo fmt --all -- --check
   clippy:
-    name: Lint
+    name: Lint Checking
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -72,9 +81,51 @@ jobs:
         uses: ./.github/actions/build_setup
       - name: Run clippy
         run: cargo clippy --all-features --tests -- -D warnings
+  docs_validation:
+    name: Developer Documentation Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Build setup
+        uses: ./.github/actions/build_setup
+      - name: Run cargo doc
+        env:
+          RUSTDOCFLAGS: "-D warnings"
+        run: cargo doc --no-deps --all-features
+  audit:
+    name: Dependency Auditing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: taiki-e/install-action@cargo-deny
+      - name: Vulnerability scanning
+        run: cargo deny check advisories
+  unused:
+    name: Unused Dependencies Checking
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Build setup
+        uses: ./.github/actions/build_setup
+      - name: Run cargo-udeps
+        uses: aig787/cargo-udeps-action@v1
+        with:
+          args: --all-features
+  cargo_test:
+    name: Execute Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Build setup
+        uses: ./.github/actions/build_setup
+      - name: Run tests
+        run: cargo test --all-features -- --include-ignored --nocapture
   {%- if include_mdbook -%}
   mdbook_validation:
-    name: mdBook validation
+    name: User Documentation Validation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -88,58 +139,8 @@ jobs:
       - name: Run mdbook test
         run: mdbook test
   {%- endif -%}
-  docs_validation:
-    name: Docs validation
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
-      - name: Build setup
-        uses: ./.github/actions/build_setup
-      - name: Run cargo doc
-        env:
-          RUSTDOCFLAGS: "-D warnings"
-        run: cargo doc --no-deps --all-features
-  audit:
-    name: Audit
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: taiki-e/install-action@cargo-deny
-      - name: Vulnerability scanning
-        run: cargo deny check advisories
-  unused:
-    name: Unused
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
-      - name: Build setup
-        uses: ./.github/actions/build_setup
-      - name: Run cargo-udeps
-        uses: aig787/cargo-udeps-action@v1
-        with:
-          args: --all-features
-  conventional_commits:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@main
-        with:
-          fetch-depth: 0
-      - name: Assert conventional commit usage
-        uses: oknozor/cocogitto-action@v3
-  lychee_links:
-    name: Broken URL checking
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
-      - name: Run lychee
-        uses: lycheeverse/lychee-action@v1.9.3
-        with:
-          fail: true
   coverage:
-    name: Coverage
+    name: Report Code Coverage
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources

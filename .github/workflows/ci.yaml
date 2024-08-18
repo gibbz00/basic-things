@@ -7,7 +7,7 @@ on:
 
 jobs:
   lychee_links:
-    name: Broken URL checking
+    name: Broken URL Checking
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -17,7 +17,7 @@ jobs:
         with:
           fail: true
   spelling:
-    name: Spell checking
+    name: Spell Checking
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
@@ -25,7 +25,7 @@ jobs:
     - name: typos
       uses: crate-ci/typos@master
   conventional_commits:
-    name: Conventional commit checking
+    name: Conventional Commit Checking
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
@@ -34,7 +34,7 @@ jobs:
       - name: cocogitto check
         uses: oknozor/cocogitto-action@v3
   expand_template:
-    name: Expand template
+    name: Expand Template
     runs-on: ubuntu-latest
     env:
       PROJECT_NAME: basic-tests
