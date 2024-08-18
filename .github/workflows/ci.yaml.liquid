@@ -21,7 +21,7 @@ jobs:
       uses: pre-commit/action@v3.0.1
       with:
         extra_args: run --all-files --hook-stage manual
-  {%- endif-%}
+  {%- endif -%}
   cargo_fmt:
     name: Cargo format
     runs-on: ubuntu-latest
@@ -129,7 +129,7 @@ jobs:
       - name: Assert conventional commit usage
         uses: oknozor/cocogitto-action@v3
   lychee_links:
-    name: Links
+    name: Broken URL checking
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources

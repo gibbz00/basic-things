@@ -6,6 +6,16 @@ on:
     branches: [main]
 
 jobs:
+  lychee_links:
+    name: Broken URL checking
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v1.9.3
+        with:
+          fail: true
   spelling:
     name: Spell checking
     runs-on: ubuntu-latest
