@@ -5,6 +5,7 @@ ignore = [
   "LICENSE.md",
   "README.md",
   "cargo_generate",
+  "cliff.toml",
 ]
 
 [hooks]
