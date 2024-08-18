@@ -6,15 +6,25 @@ on:
     branches: [main]
 
 jobs:
+  spelling:
+    name: Spell checking
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v4
+    - name: typos
+      uses: crate-ci/typos@master
   conventional_commits:
+    name: Conventional commit checking
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
         with:
           fetch-depth: 0
-      - name: Assert conventional commit usage
+      - name: cocogitto check
         uses: oknozor/cocogitto-action@v3
   expand_template:
+    name: Expand template
     runs-on: ubuntu-latest
     env:
       PROJECT_NAME: basic-tests
