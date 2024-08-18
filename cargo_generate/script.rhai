@@ -15,7 +15,7 @@ prompt_optional_string("architecture_url", "Architecture README.md URL");
 prompt_optional_string("codecov", "Codecov token");
 
 fn template_license() {
-	variable::set("year", system::date().year);
+	variable::set("year", system::date().year.to_string());
 
 	let licenses = [
 		"None",
