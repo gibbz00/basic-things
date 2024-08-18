@@ -51,7 +51,7 @@ fn template_license() {
 		"Unlicense" => "UNLICENCE",
 	};
 
-	file::rename(`cargo_generate/licenses/${license_file_name}.md`, LICENSE.md)
+	file::rename(`cargo_generate/licenses/${license_file_name}.md`, "LICENSE.md")
 }
 
 fn template_code_of_conduct() {
