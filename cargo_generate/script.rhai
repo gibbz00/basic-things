@@ -12,7 +12,7 @@ template_security_policy();
 template_precommit_hooks();
 template_book();
 prompt_optional_string("architecture_url", "Architecture README.md URL");
-prompt_optional_string("codecov", "Public Codecov Token for the README.md badge");
+template_code_coverage();
 
 fn template_license() {
 	variable::set("year", system::date().year.to_string());
@@ -88,6 +88,23 @@ fn template_precommit_hooks() {
 
 	if !include_precommit {
 		file::delete(".pre-commit-config.yaml");
+	}
+}
+
+fn template_code_coverage() {
+	let include_codecov = prompt_yes_no("include_codecov", "Upload code coverage to Codecov");
+
+	if !include_codecov {
+		file::delete(".github/codecov.yaml");
+	}
+
+	if include_codecov {
+		let repository_path = variable::get("repository_path");
+		print("Public Codecov graph token may be found at:");
+		print(`https://app.codecov.io/gh/${repository_path}/config/badge`);
+		print("");
+		print("Include a Covecov badge in README.md?");
+		prompt_optional_string("codecov_graph_token", "Graph token");
 	}
 }
 
