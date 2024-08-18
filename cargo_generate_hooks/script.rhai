@@ -5,11 +5,11 @@ if variable::is_set("ci") {
 	exit();
 }
 
-template_book();
-template_precommit_hooks();
-prompt_optional_string("codecov", "Codecov token");
-prompt_optional_string("architecture_url", "Architecture README.md URL");
 prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
+prompt_optional_string("architecture_url", "Architecture README.md URL");
+template_precommit_hooks();
+template_book();
+prompt_optional_string("codecov", "Codecov token");
 
 fn template_book() {
 	let include_mdbook = prompt_yes_no("include_mdbook", "Create mdBook template");
