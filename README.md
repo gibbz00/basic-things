@@ -1,6 +1,7 @@
 # Basic Things
 
-matklad's [Basic Things](https://matklad.github.io/2024/03/22/basic-things.html) for Rust based projects in action.
+Project template for Rust based projects hosted on Github.
+Essentially matklad's [Basic Things](https://matklad.github.io/2024/03/22/basic-things.html) in action.
 
 ### Getting started
 
@@ -32,3 +33,9 @@ Project aims to provide a comprehensive continuous integration and delivery pipe
 
 Pipeline will also executes tests with `cargo`, `mdbook` (if enabled), and `cargo llvm-cod` for code coverage reporting.
 Release pipeline publishes the crates to [crates.io](https://crates.io/) and the book to [GitHub Pages](https://pages.github.com/).
+
+### Proposed improvements
+
+- [ ] Add support for other Git hosts other than GitHub, e.g Gitea and GitLab.
+- [ ] Cocogitto conventional commit checking in `pre-commit` commit-msg hook.
+- [ ] Automated releases with [`release-plz`](https://release-plz.ieni.dev)?
