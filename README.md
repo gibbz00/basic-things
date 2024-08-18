@@ -11,14 +11,9 @@ Create an empty GitHub repository and install [`cargo-generate`](https://github.
 cargo generate gibbz00/basic-things
 ```
 
-Those who have the `gh` CLI tool setup may adapt:
+#### Tokens
 
-```sh
-_repo_path="<owner/name>"
-gh repo create $_repo_path --public/--private
-cargo generate gibbz00/basic-things --define=repository_path=$_repo_path
-```
-
+Optional public (graph) codecov token prompt may be filled in by first retrieving it from `https://app.codecov.io/gh/<repository_path>/config/badge`.
 CI may expect the presence of both [`CODECOV_TOKEN`](https://docs.codecov.com/docs/adding-the-codecov-token) and [`CARGO_REGISTRY_TOKEN`](https://crates.io/settings/tokens).
 
 ### Integrated tools
