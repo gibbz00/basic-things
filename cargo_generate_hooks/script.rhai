@@ -6,10 +6,19 @@ if variable::is_set("ci") {
 }
 
 prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
-prompt_optional_string("architecture_url", "Architecture README.md URL");
+template_security_policy();
 template_precommit_hooks();
 template_book();
+prompt_optional_string("architecture_url", "Architecture README.md URL");
 prompt_optional_string("codecov", "Codecov token");
+
+fn template_security_policy() {
+	let include_security_policy = prompt_yes_no("include_security_policy", "Template a security policy (SECURITY.md)");
+
+	if !include_security_policy {
+		file::delete("SECURITY.md.liquid");
+	}
+}
 
 fn template_book() {
 	let include_mdbook = prompt_yes_no("include_mdbook", "Create mdBook template");

@@ -49,6 +49,7 @@ jobs:
           arguments: >-
             --define=include_mdbook=true
             --define=mdbook_pages_url=XXX
+            --define=include_security_policy=true
             --define=include_precommit=true
             --define=codecov=XXX
             --define=architecture_url=XXX
