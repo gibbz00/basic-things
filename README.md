@@ -13,6 +13,8 @@ cargo generate gibbz00/basic-things
 
 CI may expect the presence of both [`CODECOV_TOKEN`](https://docs.codecov.com/docs/adding-the-codecov-token) and [`CARGO_REGISTRY_TOKEN`](https://crates.io/settings/tokens).
 
+(Reference for template values may be found in `./cargo_generate/values.toml`.)
+
 ### Integrated tools
 
 * [git-cliff](https://git-cliff.org) - Automated changelog generation by the usage of conventional commits.

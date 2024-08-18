@@ -2,9 +2,8 @@
 include_code_of_conduct = false
 include_precommit = false
 include_security_policy = false
+license = "None"
 repository_path = "owner/name"
-# optional
-license = "MIT"
 # optional
 architecture_url = "XXX"
 
