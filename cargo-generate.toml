@@ -6,7 +6,6 @@ ignore = [
   "README.md",
   "cargo_generate",
 ]
-include = ["cliff.toml"]
 
 [hooks]
 pre = ["cargo_generate/script.rhai"]
