@@ -1,6 +1,6 @@
 # Basic Things
 
-matklad's [Basic Things](https://matklad.github.io/2024/03/22/basic-things.html) in action for Rust based projects.
+matklad's [Basic Things](https://matklad.github.io/2024/03/22/basic-things.html) for Rust based projects in action.
 
 ### Getting started
 
@@ -10,7 +10,7 @@ Install [`cargo-generate`](https://github.com/cargo-generate/cargo-generate) bef
 cargo generate gibbz00/basic-things
 ```
 
-CI expects the presence of both [`CODECOV_TOKEN`](https://docs.codecov.com/docs/adding-the-codecov-token) and [`CARGO_REGISTRY_TOKEN`](https://crates.io/settings/tokens).
+CI may expect the presence of both [`CODECOV_TOKEN`](https://docs.codecov.com/docs/adding-the-codecov-token) and [`CARGO_REGISTRY_TOKEN`](https://crates.io/settings/tokens).
 
 ### Integrated tools
 
@@ -19,9 +19,7 @@ CI expects the presence of both [`CODECOV_TOKEN`](https://docs.codecov.com/docs/
 * [codecov](https://about.codecov.io/) - Optionally enabled for code coverage uploads and analysis.
 * [pre-commit](https://github.com/pre-commit/pre-commit) - Optionally enabled for quicker validations before committing.
 
-### CI/CD jobs:
-
-Project aims to provide a comprehensive continuous integration and delivery pipeline.
+Project aims to provide a comprehensive continuous integration and delivery pipeline. This includes running CI jobs using:
 
 * [`cargo fmt/clippy`](https://github.com/rust-lang/cargo) - Formatting and link checking of both Rust source code and doc comments
 * [`taplo fmt/lint`](https://github.com/tamasfe/taplo) - Formatting and lint checking for TOML files
@@ -32,5 +30,5 @@ Project aims to provide a comprehensive continuous integration and delivery pipe
 * [`dependabot`](https://github.com/dependabot/dependabot-core) - Dependency update scanning
 * [`cocogitto`](https://github.com/cocogitto/cocogitto) - Assert usage of convetional commits.
 
-Executes tests with `cargo`, `mdbook` (if enabled), and `cargo llvm-cod` for code coverage reporting.
-Release pipeline publishes crates and documentation.
+Pipeline will also executes tests with `cargo`, `mdbook` (if enabled), and `cargo llvm-cod` for code coverage reporting.
+Release pipeline publishes the crates to [crates.io](https://crates.io/) and the book to [GitHub Pages](https://pages.github.com/).
