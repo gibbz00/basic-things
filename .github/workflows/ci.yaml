@@ -52,7 +52,8 @@ jobs:
             --define=mdbook_pages_url=XXX
             --define=include_security_policy=true
             --define=include_precommit=true
-            --define=codecov=XXX
+            --define=include_codecov=false
+            --define=codecov_graph_token=XXX
             --define=architecture_url=XXX
             --define=repository_path=XXX
       - name: Build setup
