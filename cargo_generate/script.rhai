@@ -58,7 +58,7 @@ fn template_code_of_conduct() {
 	let include_code_of_conduct = prompt_yes_no("include_code_of_conduct", "Template a code of conduct (CODE_OF_CONDUCT.md)");
 
 	if !include_code_of_conduct {
-		file::delete(CODE_OF_CONDUCT.md);
+		file::delete("CODE_OF_CONDUCT.md");
 	}
 }
 
