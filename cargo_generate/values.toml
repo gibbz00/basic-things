@@ -1,0 +1,19 @@
+[values]
+include_code_of_conduct = false
+include_precommit = false
+include_security_policy = false
+repository_path = "owner/name"
+# optional
+license = "MIT"
+# optional
+architecture_url = "XXX"
+
+## codecov
+include_codecov = false
+# optional
+codecov_graph_token = "XXX"
+
+## mdbook
+include_mdbook = false
+# optional
+mdbook_pages_url = "XXX"
