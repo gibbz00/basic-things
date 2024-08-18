@@ -1,63 +1,36 @@
-# {{ project-name }}
+# Basic Things
 
-[![ci_status](https://img.shields.io/github/actions/workflow/status/{{ repository_path }}/ci.yaml?style=for-the-badge)](https://github.com/{{ repository_path }}/actions/workflows/ci.yaml)
-{%- if optional_codecov != "" -%}
-[![codecov](https://img.shields.io/codecov/c/gh/{{ repository_path }}?token={{ optional_codecov }}&style=for-the-badge)](https://codecov.io/gh/{{ repository_path }})
-{%- endif -%}
-[![license](https://img.shields.io/github/license/{{ repository_path }}.svg?style=for-the-badge)](https://github.com/{{ repository_path }}/blob/main/LICENSE.md)
+matklad's [Basic Things](https://matklad.github.io/2024/03/22/basic-things.html) in action for Rust based projects.
 
-### CI/CD expects the following environment variables:
+### Getting started
 
-`ci.yaml`
+Install [`cargo-generate`](https://github.com/cargo-generate/cargo-generate) before running:
 
-* `CODECOV_TOKEN` - for code coverage reporting
+```sh
+cargo generate gibbz00/basic-things
+```
 
-`releases.yaml`
+CI expects the presence of both [`CODECOV_TOKEN`](https://docs.codecov.com/docs/adding-the-codecov-token) and [`CARGO_REGISTRY_TOKEN`](https://crates.io/settings/tokens).
 
-* `CARGO_REGISTRY_TOKEN` - for crate publishing
+### Integrated tools
 
-## Features
+* [git-cliff](https://git-cliff.org) - Automated changelog generation by the usage of conventional commits.
+* [mdbook](https://github.com/rust-lang/mdBook) - Optionally enabled to create user focused documentation.
+* [codecov](https://about.codecov.io/) - Optionally enabled for code coverage uploads and analysis.
+* [pre-commit](https://github.com/pre-commit/pre-commit) - Optionally enabled for quicker validations before committing.
 
-Optionally enabled tools:
+### CI/CD jobs:
 
-* [mdbook](https://github.com/rust-lang/mdBook)
-* [pre-commit](https://github.com/pre-commit/pre-commit)
+Project aims to provide a comprehensive continuous integration and delivery pipeline.
 
-### CI/CD
+* [`cargo fmt/clippy`](https://github.com/rust-lang/cargo) - Formatting and link checking of both Rust source code and doc comments
+* [`taplo fmt/lint`](https://github.com/tamasfe/taplo) - Formatting and lint checking for TOML files
+* [`lychee`](https://github.com/lycheeverse/lychee) - Broken URL checking
+* [`cargo-udeps`](https://github.com/est31/cargo-udeps) - Finding unused dependencies
+* [`typos`](https://github.com/crate-ci/typos) - Spell checking
+* [`cargo-deny`](https://github.com/EmbarkStudios/cargo-deny) - Dependency license vulnerability scanning
+* [`dependabot`](https://github.com/dependabot/dependabot-core) - Dependency update scanning
+* [`cocogitto`](https://github.com/cocogitto/cocogitto) - Assert usage of convetional commits.
 
-#### Linting
-
-* cargo fmt
-* cargo clippy
-* taplo lint
-* taplo fmt
-* cargo doc warnings
-* lychee - link checking
-* cargo udeps - unused dependencies
-* typos
-
-#### Testing
-
-* cargo test
-* mdbook test
-* cargo llvm-cod - uploaded to codecov
-
-#### Misc
-
-* cargo deny - dependency vulnerability scanning
-* dependabot - weekly depencendy updates scanning
-
-#### Release
-
-* On tagged commits only
-* mdbook publish
-* cargo publish
-
-## Further reading
-
-{%- if architecture_url != "" -%}
-* [Architecture]({{ architecture_url }})
-{%- endif -%}
-* [Contributing](/CODE_OF_CONDUCT.md)
-* [Code of conduct](/CODE_OF_CONDUCT.md)
-* [Security policy](/SECURITY.md)
+Executes tests with `cargo`, `mdbook` (if enabled), and `cargo llvm-cod` for code coverage reporting.
+Release pipeline publishes crates and documentation.
