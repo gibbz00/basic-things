@@ -12,7 +12,7 @@ template_security_policy();
 template_precommit_hooks();
 template_book();
 prompt_optional_string("architecture_url", "Architecture README.md URL");
-prompt_optional_string("codecov", "Codecov token");
+prompt_optional_string("codecov", "Public Codecov Token for the README.md badge");
 
 fn template_license() {
 	variable::set("year", system::date().year.to_string());
