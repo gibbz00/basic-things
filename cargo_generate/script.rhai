@@ -6,12 +6,53 @@ if variable::is_set("ci") {
 }
 
 prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
+template_license();
 template_code_of_conduct();
 template_security_policy();
 template_precommit_hooks();
 template_book();
 prompt_optional_string("architecture_url", "Architecture README.md URL");
 prompt_optional_string("codecov", "Codecov token");
+
+fn template_license() {
+	variable::set("year", system::date().year);
+
+	let licenses = [
+		"None",
+		"Apache v2.0",
+		"BSD 3-clause",
+		"BSD 2-clause",
+		"AGPLv3",
+		"GPLv2",
+		"GPLv3",
+		"LGPLv3",
+		"MIT",
+		"MPL v2.0",
+		"Unlicense",
+	];
+
+	let name = "license";
+	if !variable::is_set(name) {
+		let license = variable::prompt("Choose a license (LICENSE.md)", "None", licenses);
+		variable::set(name, license);
+	}
+
+	let license_file_name = switch variable::get(name) {
+		"None" => { return; },
+		"Apache v2.0" => "APACHE-2",
+		"BSD 3-clause" => "BSD-2",
+		"BSD 2-clause" => "BSD-3",
+		"AGPLv3" => "GNU-AGPL-3",
+		"GPLv2" => "GNU-GPL-2",
+		"GPLv3" => "GNU-GPL-3",
+		"LGPLv3" => "GNU-LGPL-3",
+		"MIT" => "MIT",
+		"MPL v2.0" => "MPL-2",
+		"Unlicense" => "UNLICENCE",
+	};
+
+	file::rename(`cargo_generate/licenses/${license_file_name}.md`, LICENSE.md)
+}
 
 fn template_code_of_conduct() {
 	let include_code_of_conduct = prompt_yes_no("include_code_of_conduct", "Template a code of conduct (CODE_OF_CONDUCT.md)");

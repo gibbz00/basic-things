@@ -47,6 +47,7 @@ jobs:
         with:
           name: ${{ env.PROJECT_NAME }}
           arguments: >-
+            --define=license="MIT"
             --define=include_mdbook=true
             --define=mdbook_pages_url=XXX
             --define=include_security_policy=true
