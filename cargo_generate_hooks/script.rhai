@@ -6,11 +6,20 @@ if variable::is_set("ci") {
 }
 
 prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
+template_code_of_conduct();
 template_security_policy();
 template_precommit_hooks();
 template_book();
 prompt_optional_string("architecture_url", "Architecture README.md URL");
 prompt_optional_string("codecov", "Codecov token");
+
+fn template_code_of_conduct() {
+	let include_code_of_conduct = prompt_yes_no("include_code_of_conduct", "Template a code of conduct (CODE_OF_CONDUCT.md)");
+
+	if !include_code_of_conduct {
+		file::delete(CODE_OF_CONDUCT.md);
+	}
+}
 
 fn template_security_policy() {
 	let include_security_policy = prompt_yes_no("include_security_policy", "Template a security policy (SECURITY.md)");
