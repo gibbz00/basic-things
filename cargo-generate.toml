@@ -3,8 +3,8 @@ ignore = [
   ".github/workflows/ci.yaml",
   "CONTRIBUTING.md",
   "README.md",
-  "cargo_generate_hooks",
+  "cargo_generate",
 ]
 
 [hooks]
-pre = ["cargo_generate_hooks/script.rhai"]
+pre = ["cargo_generate/script.rhai"]
