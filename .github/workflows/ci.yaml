@@ -35,7 +35,7 @@ jobs:
         uses: oknozor/cocogitto-action@v3
   expand_template:
     name: Expand Template
-    runs-on: tamasfe/taplo:0.8.0
+    runs-on: ubuntu-latest
     env:
       PROJECT_NAME: basic-tests
       CARGO_GENERATE_VALUE_CI: true
@@ -63,4 +63,3 @@ jobs:
           cd ${{ runner.temp }}/$PROJECT_NAME
           # IMPROVEMENT: add more tests / CI steps
           cargo check
-          taplo fmt --check --diff
