@@ -5,10 +5,18 @@ Essentially matklad's [Basic Things](https://matklad.github.io/2024/03/22/basic-
 
 ### Getting started
 
-Install [`cargo-generate`](https://github.com/cargo-generate/cargo-generate) before running:
+Create an empty GitHub repository and install [`cargo-generate`](https://github.com/cargo-generate/cargo-generate) before running:
 
 ```sh
 cargo generate gibbz00/basic-things
+```
+
+Those who have the `gh` CLI tool setup may adapt:
+
+```sh
+_repo_path="<owner/name>"
+gh repo create $_repo_path --public/--private
+cargo generate gibbz00/basic-things --define=repository_path=$_repo_path
 ```
 
 CI may expect the presence of both [`CODECOV_TOKEN`](https://docs.codecov.com/docs/adding-the-codecov-token) and [`CARGO_REGISTRY_TOKEN`](https://crates.io/settings/tokens).
