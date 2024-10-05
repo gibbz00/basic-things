@@ -155,6 +155,8 @@ fn prompt_yes_no(name, prompt) {
 fn print_adding_premote() {
 	let repository_path = variable::get("repository_path");
 
+	print("***");
+	print("");
 	print("Remote git repository may finally be registered by running:");
 	print("");
 	print(`git remote add origin git@github.com:${repository_path}.git`);
@@ -162,4 +164,6 @@ fn print_adding_premote() {
 	print("or");
 	print("");
 	print(`git remote add origin https://github.com/${repository_path}.git`);
+	print("");
+	print("***");
 }
