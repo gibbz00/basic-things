@@ -2,6 +2,7 @@
 
 Project template for Rust based projects hosted on Github.
 Essentially matklad's [Basic Things](https://matklad.github.io/2024/03/22/basic-things.html) in action.
+A generated example with the majority of the features enabled can be found over at [basic-things-demo](https://github.com/gibbz00/basic-things-demo).
 
 ### Getting started
 
