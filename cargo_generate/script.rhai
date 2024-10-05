@@ -8,8 +8,7 @@ if variable::is_set("ci") {
 // WORKAROUND: CONTRIBUTING.md does for some reason not seem to be overwritten by a CONTRIBUTING.md.liquid
 file::rename("CONTRIBUTING_FINAL.md", "CONTRIBUTING.md");
 
-
-add_repository();
+prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
 template_license();
 template_code_of_conduct();
 template_security_policy();
@@ -17,26 +16,7 @@ template_precommit_hooks();
 template_book();
 prompt_optional_string("architecture_url", "Architecture README.md URL");
 template_code_coverage();
-
-fn add_repository() {
-	let repository_path = prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
-
-	let prefix = switch variable::prompt("Auto-add git remote url?", "no", ["https", "ssh", "no"]) {
-		"no" => { return; },
-		"ssh" => "https://github.com/",
-		"https" => "git@github.com:",
-	};
-
-	let remote = `${prefix}${repository_path}.git`;
-
-	system::command("git", [
-        "-c",
-        "user.name='temp'",
-        "-c",
-        "user.email='temp@temp.com'",
-		"remote", "add", "origin", remote
-	]);
-}
+print_adding_premote();
 
 fn template_license() {
 	variable::set("year", system::date().year.to_string());
@@ -170,4 +150,16 @@ fn prompt_yes_no(name, prompt) {
 	variable::set(name, value);
 
 	value
+}
+
+fn print_adding_premote() {
+	let repository_path = variable::get("repository_path");
+
+	print("Remote git repository may finally be registered by running:");
+	print("");
+	print(`git remote add origin git@github.com:${repository_path}.git`);
+	print("");
+	print("or");
+	print("");
+	print(`git remote add origin https://github.com/${repository_path}.git`);
 }
