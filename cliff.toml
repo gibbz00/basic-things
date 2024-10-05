@@ -28,11 +28,10 @@ body = """
 
 {% for group, commits in commits | group_by(attribute="group") %}
     ### {{ group | upper_first }}
-    {% for commit in commits %}
-        {%- if not commit.scope -%}
-            {% raw %}{% endraw %}
+    {% for commit in commits -%}
+        {% if not commit.scope %}
             {{ self::print_commit(commit=commit) }}
-        {%- endif -%}
+        {%- endif %}
     {%- endfor -%}
     {% for group, commits in commits | group_by(attribute="scope") %}
         #### {{ group | upper_first }}
