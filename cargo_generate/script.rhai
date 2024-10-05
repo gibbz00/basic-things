@@ -8,7 +8,8 @@ if variable::is_set("ci") {
 // WORKAROUND: CONTRIBUTING.md does for some reason not seem to be overwritten by a CONTRIBUTING.md.liquid
 file::rename("CONTRIBUTING_FINAL.md", "CONTRIBUTING.md");
 
-prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
+
+add_repository();
 template_license();
 template_code_of_conduct();
 template_security_policy();
@@ -16,6 +17,20 @@ template_precommit_hooks();
 template_book();
 prompt_optional_string("architecture_url", "Architecture README.md URL");
 template_code_coverage();
+
+fn add_repository() {
+	let repository_path = prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
+
+	let prefix = switch variable::prompt("Auto-add git remote url?", "no", ["https", "ssh", "no"]) {
+		"no" => { return; },
+		"ssh" => "https://github.com/",
+		"https" => "git@github.com:",
+	};
+
+	let remote = `${prefix}${repository_path}.git`;
+
+	system::command("git", ["remote", "add", "origin", remote]);
+}
 
 fn template_license() {
 	variable::set("year", system::date().year.to_string());
@@ -116,11 +131,13 @@ fn template_code_coverage() {
 
 fn prompt_variable(name, prompt) {
 	if variable::is_set(name) {
-		return;
+		return variable::get(name);
 	}
 
 	let value = variable::prompt(prompt);
 	variable::set(name, value);
+
+	value
 }
 
 fn prompt_optional_string(name, prompt) {
