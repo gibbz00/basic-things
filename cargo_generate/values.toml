@@ -1,18 +1,18 @@
 [values]
-include_code_of_conduct = false
+include_code_of_conduct = true
 include_precommit = false
-include_security_policy = false
+include_security_policy = true
 license = "None"
 repository_path = "owner/name"
 # optional
 architecture_url = "XXX"
 
 ## codecov
-include_codecov = false
+include_codecov = true
 # optional
 codecov_graph_token = "XXX"
 
 ## mdbook
-include_mdbook = false
+include_mdbook = true
 # optional
 mdbook_pages_url = "XXX"

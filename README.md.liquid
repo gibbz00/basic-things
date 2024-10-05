@@ -1,20 +1,20 @@
 # {{ project-name }}
 
 [![ci_status](https://img.shields.io/github/actions/workflow/status/{{ repository_path }}/ci.yaml?style=for-the-badge)](https://github.com/{{ repository_path }}/actions/workflows/ci.yaml)
-{%- if codecov_graph_token -%}
+{% if codecov_graph_token -%}
 [![codecov](https://img.shields.io/codecov/c/gh/{{ repository_path }}?token={{ codecov_graph_token }}&style=for-the-badge)](https://codecov.io/gh/{{ repository_path }})
-{%- endif -%}
+{%- endif %}
 [![license](https://img.shields.io/github/license/{{ repository_path }}.svg?style=for-the-badge)](https://github.com/{{ repository_path }}/blob/main/LICENSE.md)
 
 ## Further reading
 
-{%- if architecture_url != "" -%}
+{% if architecture_url != "" -%}
 * [Architecture]({{ architecture_url }})
-{%- endif -%}
-* [Contributing](/CODE_OF_CONDUCT.md)
-{%- if include_code_of_conduct -%}
-* [Code of conduct](/CODE_OF_CONDUCT.md)
-{%- endif -%}
-{%- if include_security_policy -%}
-* [Security policy](/SECURITY.md)
-{%- endif -%}
+{%- endif %}
+* [Contributing](./CONTRIBUTING.md)
+{% if include_code_of_conduct -%}
+* [Code of conduct](./CODE_OF_CONDUCT.md)
+{%- endif %}
+{% if include_security_policy -%}
+* [Security policy](./SECURITY.md)
+{%- endif %}
