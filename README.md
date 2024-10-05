@@ -34,6 +34,7 @@ Project aims to provide a comprehensive continuous integration and delivery pipe
 * [`cocogitto`](https://github.com/cocogitto/cocogitto) - Assert usage of convetional commits.
 
 Pipeline will also executes tests with `cargo`, `mdbook` (if enabled), and `cargo llvm-cod` for code coverage reporting.
+
 Release pipeline publishes the crates to [crates.io](https://crates.io/) and the book to [GitHub Pages](https://pages.github.com/).
 
 ### Proposed improvements

@@ -29,7 +29,13 @@ fn add_repository() {
 
 	let remote = `${prefix}${repository_path}.git`;
 
-	system::command("git", ["remote", "add", "origin", remote]);
+	system::command("git", [
+        "-c",
+        "user.name='temp'",
+        "-c",
+        "user.email='temp@temp.com'",
+		"remote", "add", "origin", remote
+	]);
 }
 
 fn template_license() {
