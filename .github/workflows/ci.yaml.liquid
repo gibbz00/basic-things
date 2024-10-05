@@ -20,7 +20,7 @@ jobs:
     - name: Run pre-commit check
       uses: pre-commit/action@v3.0.1
       with:
-        extra_args: run --all-files --hook-stage manual
+        extra_args: --all-files --hook-stage manual
   {% endif -%}
   conventional_commits:
     name: Conventional Commit Checking
