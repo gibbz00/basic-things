@@ -5,6 +5,9 @@ if variable::is_set("ci") {
 	exit();
 }
 
+// WORKAROUND: CONTRIBUTING.md does for some reason not seem to be overwritten by a CONTRIBUTING.md.liquid
+file::rename("CONTRIBUTING_FINAL.md", "CONTRIBUTING.md");
+
 prompt_variable("repository_path", "Repository path (usually 'username/repository_name')");
 template_license();
 template_code_of_conduct();
