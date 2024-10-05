@@ -1,12 +1,5 @@
 [template]
-ignore = [
-  ".github/workflows/ci.yaml",
-  "CONTRIBUTING.md",
-  "LICENSE.md",
-  "README.md",
-  "cargo_generate",
-  "cliff.toml",
-]
+ignore = ["cargo_generate"]
 
 [hooks]
 pre = ["cargo_generate/script.rhai"]

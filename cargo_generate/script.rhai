@@ -38,7 +38,10 @@ fn template_license() {
 	}
 
 	let license_file_name = switch variable::get(name) {
-		"None" => { return; },
+		"None" => {
+			file::delete("LICENSE.md");
+			return;
+		},
 		"Apache v2.0" => "APACHE-2",
 		"BSD 3-clause" => "BSD-2",
 		"BSD 2-clause" => "BSD-3",
