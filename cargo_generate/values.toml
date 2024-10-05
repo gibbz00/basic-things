@@ -1,6 +1,6 @@
 [values]
 include_code_of_conduct = true
-include_precommit = false
+include_precommit = true
 include_security_policy = true
 license = "MIT"
 repository_path = "owner/name"
