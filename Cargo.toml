@@ -18,3 +18,8 @@ unused_must_use = "deny"
 
 [workspace.lints.clippy]
 self_named_module_files = "deny"
+
+[profile.dev]
+# https://davidlattimore.github.io/posts/2024/02/04/speeding-up-the-rust-edit-build-run-cycle.html#avoid-linking-debug-info
+debug = 0
+strip = "debuginfo"
