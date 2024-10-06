@@ -41,5 +41,6 @@ Release pipeline publishes the crates to [crates.io](https://crates.io/) and the
 ### Proposed improvements
 
 - [ ] Add support for other Git hosts other than GitHub, e.g Gitea and GitLab.
+- [ ] Make most features opt-in.
 - [ ] Cocogitto conventional commit checking in `pre-commit` commit-msg hook.
 - [ ] Automated releases with [`release-plz`](https://release-plz.ieni.dev)?
