@@ -25,12 +25,12 @@ CI may expect the presence of both [`CODECOV_TOKEN`](https://docs.codecov.com/do
 
 Project aims to provide a comprehensive continuous integration and delivery pipeline. This includes running CI jobs using:
 
-* [`cargo fmt/clippy`](https://github.com/rust-lang/cargo) - Formatting and link checking of both Rust source code and doc comments
-* [`taplo fmt/lint`](https://github.com/tamasfe/taplo) - Formatting and lint checking for TOML files
-* [`lychee`](https://github.com/lycheeverse/lychee) - Broken URL checking
-* [`cargo-udeps`](https://github.com/est31/cargo-udeps) - Finding unused dependencies
-* [`typos`](https://github.com/crate-ci/typos) - Spell checking
-* [`cargo-deny`](https://github.com/EmbarkStudios/cargo-deny) - Dependency license vulnerability scanning
+* [`cargo fmt/clippy`](https://github.com/rust-lang/cargo) - Format and lint check Rust source code and doc comments
+* [`taplo fmt/lint`](https://github.com/tamasfe/taplo) - Format and lint check for TOML files
+* [`lychee`](https://github.com/lycheeverse/lychee) - Scan for broken URLs
+* [`cargo-udeps`](https://github.com/est31/cargo-udeps) - Find unused dependencies
+* [`typos`](https://github.com/crate-ci/typos) - Spell checking source code
+* [`cargo-deny`](https://github.com/EmbarkStudios/cargo-deny) - Dependency license and vulnerability scanning
 * [`dependabot`](https://github.com/dependabot/dependabot-core) - Dependency update scanning
 * [`cocogitto`](https://github.com/cocogitto/cocogitto) - Assert usage of convetional commits.
 
