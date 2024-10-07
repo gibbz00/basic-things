@@ -27,9 +27,9 @@ repos:
     entry: sh -c "RUSTDOCFLAGS='-D warnings' cargo doc"
     args: ["--no-deps", "--all-features", "--workspace"]
 - repo: https://github.com/ComPWA/mirrors-taplo
-  rev: "v0.8.1"
+  rev: v0.9.3
   hooks:
-    - id: taplo
+    - id: taplo-format
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.6.0
   hooks:
