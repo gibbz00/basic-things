@@ -4,6 +4,7 @@ name = "{{ project-name }}-common"
 authors.workspace = true
 edition.workspace = true
 exclude.workspace = true
+license.workspace = true
 readme.workspace = true
 repository.workspace = true
 version.workspace = true
