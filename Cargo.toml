@@ -1,10 +1,10 @@
 [workspace]
 members = ["crates/*"]
-resolver = "2"
+resolver = "3"
 
 [workspace.package]
 authors = ["{{ authors }}"]
-edition = "2021"
+edition = "2024"
 exclude = ["/.github"]
 license = "{{ license }}"
 readme = "README.md"
