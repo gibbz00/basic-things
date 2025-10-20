@@ -32,7 +32,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: cocogitto check
-        uses: oknozor/cocogitto-action@v3
+        uses: oknozor/cocogitto-action@v4
   expand_template:
     name: Expand Template
     runs-on: ubuntu-latest
